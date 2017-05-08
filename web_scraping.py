@@ -7,12 +7,18 @@ page = urllib.request.urlopen(url)
 
 soup = BeautifulSoup(page.read(), 'html.parser')
 
+week_list=[]
+
+
+
+
 #Find Date
-def day_of_week():
-    day_of_week = [x.text.strip() for x in soup.findAll('div', {'class' : 'date-week-day'})][:7]
-def day():
-    day = [x.text.strip() for x in soup.findAll('div', {'class' : 'date-day'})][:7]
-def month():
-    month = [x.text.strip() for x in soup.findAll('div', {'class' : 'date-month'})][:7]
+def date_list():
+    for i in range(7):
+         week_list.append([x.text.strip() for x in soup.findAll('div', {'class' : 'date-week-day'})][i] + " " + [x.text.strip() for x in soup.findAll('div', {'class' : 'date-day'})][i] + " " + [x.text.strip() for x in soup.findAll('div', {'class' : 'date-month'})][i])
+    return week_list
+
+
+
 
 
