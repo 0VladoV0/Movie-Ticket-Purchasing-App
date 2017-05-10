@@ -11,7 +11,7 @@ class App():
         self.myString = StringVar()
         self.myString.set("Choose Your Date")
         self.myString2 = StringVar()
-        self.myString2.set("Choose Your Date")
+        self.myString2.set("Choose Your Movie")
         self.myString3 = StringVar()
         self.myString3.set("Choose Your Month")
 
@@ -19,6 +19,11 @@ class App():
         self.new_font = font.Font(family="Comic Sans MS", size=23)
 
         self.choose_day= OptionMenu(master,self.myString, *date_list()).grid(row="2",column="2")
+
+    
+       # if self.myString!="Choose Your Date":
+           # self.choose_movie=OptionMenu(master,self.myString2)
+
 
 
 

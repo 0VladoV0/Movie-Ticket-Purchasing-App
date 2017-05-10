@@ -11,7 +11,7 @@ week_list=[]
 
 
 
-
+week_list.append("Choose Your Date")
 #Find Date
 def date_list():
     for i in range(7):
