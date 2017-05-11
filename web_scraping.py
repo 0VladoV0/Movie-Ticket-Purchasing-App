@@ -24,9 +24,10 @@ def movie_title(url):
 
 #Find times
 
-def find_time(url):
+def find_time(index, url):
     page = urllib.request.urlopen(url)
     soup = BeautifulSoup(page.read(), 'html.parser')
     soup.prettify()
-    time_list = [[z.text.strip() for z in y.findAll('time', {'class': 'timeInfo'})] for y in [x for x in soup.findAll('div', {'class': 'showtimes-movie-container'})]]
+    time_list = [[z.text.strip() for z in y.findAll('time', {'class': 'timeInfo'})] for y in [x for x in soup.findAll('div', {'class': 'showtimes-movie-container'})]][index]
     return time_list
+
