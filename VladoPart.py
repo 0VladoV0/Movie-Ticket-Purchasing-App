@@ -75,8 +75,10 @@ class App():
         self.submit_button4 = Label(text="Buy Tickets",font=self.newest_font, bg="gold", fg="black")
         self.submit_button4.bind("<Button-1>",self.ginend)
         self.submit_button4.grid(row="1",column="4",rowspan="3")
-    def ginend(self):
-        
+    def ginend(self,event=None):
+        self.final=int(self.spinbox1.get())
+        return self.final
+
 
 
 if __name__ == "__main__":
