@@ -291,7 +291,7 @@ def file_opening():
     reader = csv.reader(file, delimiter=',')
     for line in reader:
         movie_list.append(line)
-    print(movie_list)
+    #print(movie_list)
     return movie_list
 
 
@@ -314,7 +314,7 @@ def more_ticket_check(date, movie, time):
     daily_tickets = 0
     try:
         for i in range(len(movie_list)):
-            print(movie_list[i][0], date)
+            #print(movie_list[i][0], date)
             if movie_list[i][0] == date:
                 daily_tickets += int(movie_list[i][3])
                 if daily_tickets > 20:
@@ -330,22 +330,25 @@ def purchase(date, movie, time, tickets):
     file = open("ledger.csv", "a")
     daily_tickets = more_ticket_check(date, movie, time)
     total = ticket_check(date, movie, time)
-    print(daily_tickets, total)
+    #print(daily_tickets, total)
     if tickets + daily_tickets <= 10 and tickets + total <= 20:
         file.write(date + "," + movie + "," + time + "," + str(tickets) + "\n")
-
+        print(movie_list)
         file.close()
-        return ("purchase confirmed")
+        return("purchase confirmed")
         #return ("purchase confirmed")
-    else:
+    if tickets + total > 20:
         file.close()
-        return("purchase denied")
+        return("purchase denied, you bought too many tickets for this date")
+    if tickets + daily_tickets >10:
+        file.close()
+        return("purchase denied, you bought too many tickets for this movie")
 
 
 
 
 if __name__== "__main__":
-    purchase("5/19", "star wars", "7:00", 5)
+    print(purchase("5/22", "jac", "8:00", 1))
 
 
 
