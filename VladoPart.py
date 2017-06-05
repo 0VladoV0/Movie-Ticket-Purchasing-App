@@ -50,6 +50,7 @@ class App():
 
         self.submit_button2.bind('<Button-1>', self.continuehour)
         self.submit_button2.grid(row="3", column="3")
+        return self.myString
 
 
         # if self.myString!="Choose Your Date":
@@ -66,6 +67,7 @@ class App():
         self.submit_button3 = Label(text="Choose Time", bg="lightblue", fg="black")
         self.submit_button3.bind('<Button-1>', self.endfunc)
         self.submit_button3.grid(row="4", column="3")
+        return self.myString2
 
     def endfunc(self,event=None):
         self.submit_button3.config(state="disabled")
@@ -75,6 +77,7 @@ class App():
         self.submit_button4 = Label(text="Buy Tickets",font=self.newest_font, bg="gold", fg="black")
         self.submit_button4.bind("<Button-1>",self.ginend)
         self.submit_button4.grid(row="1",column="4",rowspan="3")
+        return self.myString3
 
     def ginend(self,event=None):
         self.final=int(self.spinbox1.get())
