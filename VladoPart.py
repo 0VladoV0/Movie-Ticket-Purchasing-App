@@ -2,7 +2,9 @@ from tkinter import *
 from tkinter import font
 import random
 from web_scraping import date_list
-
+#NOTE TO CHARLIE: I doubt you'd be able to understand the code by yourself so I'll give you an explanation.
+#the only things you need to look at are the functions that return something. Each return item has a certain importance
+#to Tom's program. Make sure he gets the data he needs.
 from tkinter import *
 from tkinter import font
 import random
