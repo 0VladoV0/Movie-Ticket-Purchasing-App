@@ -52,7 +52,8 @@ class App():
 
         self.submit_button2.bind('<Button-1>', self.continuehour)
         self.submit_button2.grid(row="3", column="3")
-        return self.myString
+        return self.list_days[self.x]
+
 
 
         # if self.myString!="Choose Your Date":
@@ -69,9 +70,10 @@ class App():
         self.submit_button3 = Label(text="Choose Time", bg="lightblue", fg="black")
         self.submit_button3.bind('<Button-1>', self.endfunc)
         self.submit_button3.grid(row="4", column="3")
-        return self.myString2
+        return self.movie_listings[z]
 
     def endfunc(self,event=None):
+        self.j = self.n.index(self.myString3.get())
         self.submit_button3.config(state="disabled")
         self.spinbox1=Spinbox(self.master,from_=1,to=6)
         self.spinbox1.grid(row="4",column="4")
@@ -79,10 +81,12 @@ class App():
         self.submit_button4 = Label(text="Buy Tickets",font=self.newest_font, bg="gold", fg="black")
         self.submit_button4.bind("<Button-1>",self.ginend)
         self.submit_button4.grid(row="1",column="4",rowspan="3")
+        print(self.n[self.j])
         return self.myString3
 
     def ginend(self,event=None):
         self.final=int(self.spinbox1.get())
+        print(self.final)
         return self.final
 
 
