@@ -2,9 +2,7 @@ from tkinter import *
 from tkinter import font
 import random
 from web_scraping import date_list
-#NOTE TO CHARLIE: I doubt you'd be able to understand the code by yourself so I'll give you an explanation.
-#the only things you need to look at are the functions that return something. Each return item has a certain importance
-#to Tom's program. Make sure he gets the data he needs.
+from recordkeeping import *
 from tkinter import *
 from tkinter import font
 import random
@@ -62,15 +60,15 @@ class App():
     def continuehour(self, event=None):
 
         self.submit_button2.config(state="disabled")
-        z=self.movie_listings.index(self.myString2.get())
-        self.n=find_time(z,self.y)
+        self.z=self.movie_listings.index(self.myString2.get())
+        self.n=find_time(self.z,self.y)
         self.choose_time = OptionMenu(self.master, self.myString3, *self.n)
         self.choose_time.grid(row="4", column="2")
 
         self.submit_button3 = Label(text="Choose Time", bg="lightblue", fg="black")
         self.submit_button3.bind('<Button-1>', self.endfunc)
         self.submit_button3.grid(row="4", column="3")
-        return self.movie_listings[z]
+        return self.movie_listings[self.z]
 
     def endfunc(self,event=None):
         self.j = self.n.index(self.myString3.get())
@@ -86,8 +84,8 @@ class App():
 
     def ginend(self,event=None):
         self.final=int(self.spinbox1.get())
-        print(self.final)
-        return self.final
+        Label(text=purchase(self.list_days[self.x],self.movie_listings[self.z],self.n[self.j],self.final),font=self.newest_font,bg="gold",fg="black").grid(column="4",row="4")
+        self.spinbox1.config(status="disabled")
 
 
 
